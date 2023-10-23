@@ -1,0 +1,23 @@
+# fly.toml app configuration file generated for remix-qr-code-app on 2023-10-22T08:52:39+05:30
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "remix-qr-code-app"
+primary_region = "sin"
+
+[build]
+
+[env]
+  PORT = "8081"
+  SHOPIFY_APP_URL = "https://remix-qr-code-app.fly.dev/"
+  SHOPIFY_API_KEY = "20b8568b20adcb0b33e21930508d9e75"
+  SCOPES = "write_products"
+
+[http_service]
+  internal_port = 8081
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
